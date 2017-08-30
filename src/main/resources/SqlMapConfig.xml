@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!-- 加载外界文件配置 -->
+	<properties resource="dbconfig.properties"></properties>
+<!--  全局设置-->
+<settings>
+
+	<setting name="useGeneratedKeys" value="true"/>
+</settings>
+<typeAliases>
+	<!--  为整个包-->
+	<package name="org.qf.domain"/>
+</typeAliases>
+<environments default="test">
+
+<!-- id为唯一标记 -->
+	<environment id="test">
+	
+	
+	<!--  JDBC直接使用JDBC事物模块 设置connection开启事物，根据情况进行回滚或提交
+	MANAGED 标记值什么都不做   不提交不回滚   用容器管理事物
+	-->
+	<transactionManager type="MANAGED"></transactionManager>
+	
+	
+	
+	
+	
+	<!--UNPOOLED不适用数据库连接池
+	POOLED使用  -->
+	<dataSource type="UNPOOLED">
+	<!--数据库相关信息  -->
+                <property name="driver" value="${driverclass}"/>
+                <property name="url" value="${dburl}"/>
+                <property name="username" value="${dbuser}"/>
+                <property name="password" value="${dbpass}"/>
+    </dataSource>
+    </environment>
+    
+    
+</environments>
+
+
+
+
+<!--  映射文件-->
+	<mappers>
+	
+	
+	<!-- 基于xml实现 -->
+		<mapper resource="org/qf/dao/StudentDaoMapper.xml"/>
+	<!-- 基于注解 -->	
+	<!--  -->
+	<!-- <mapper class=""/> -->
+	<!-- 标记指定包 -->
+	<!--< package name="org.qf.dao"/> -->
+	
+	</mappers>
+
+
+
+
+
+</configuration>    
