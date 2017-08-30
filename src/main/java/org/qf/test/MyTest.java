@@ -34,7 +34,7 @@ public class MyTest {
         ConfigurationParser parser = new ConfigurationParser(list);
         Configuration configuration = parser.parseConfiguration(file);
 
-        boolean overwrite=true;
+        boolean overwrite=true;rfes
         DefaultShellCallback callback = new DefaultShellCallback(overwrite);
 
 
